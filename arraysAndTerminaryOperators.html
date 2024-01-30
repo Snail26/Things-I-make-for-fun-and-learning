@@ -6,19 +6,24 @@
     <title>Arrays and termanary operators</title>
 </head>
 <body>
-    <p id="person"></p>
-    <input placeholder="person name" id="name">
+    <p id="current"></p>
+    <input placeholder="job" id="job">
     <button id="add">add</button>
     <button id="next">next</button>
+    <br>
+    <p id="jobs"></p>
     <script>
         let cue = [];
-        document.getElementById("add").addEventListener("click", () => {
-            cue.push(document.getElementById("name").value);
-            document.getElementById("name").value = "";
-        });
+        document.getElementById("add").addEventListener("click", add());
+        document.getElementById("job").addEventListener("submit", add());
+        function add() {
+            cue.push(document.getElementById("job").value);
+            document.getElementById("job").value = "";
+        }
         document.getElementById("next").addEventListener("click", () => {
             let cue1 = cue.shift();
-            document.getElementById("person").innerText = cue1 == undefined ? "Nothing Left. Try adding more to stay bussy!": cue1;
+            document.getElementById("current").innerText = cue1 == undefined ? "Nothing Left. Try adding more to stay bussy!": cue1;
+            document.getElementById("jobs").innerText = "Upcoming Jobs: " + cue.join(", ");
         });
     </script>
 </body>
