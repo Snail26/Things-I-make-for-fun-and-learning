@@ -8,10 +8,18 @@
 <body>
     <p id="person"></p>
     <input placeholder="person name" id="name">
-    <button>add</button>
-    <button>next</button>
+    <button id="add">add</button>
+    <button id="next">next</button>
     <script>
-        
+        let cue = [];
+        document.getElementById("add").addEventListener("click", () => {
+            cue.push(document.getElementById("name").value);
+            document.getElementById("name").value = "";
+        });
+        document.getElementById("next").addEventListener("click", () => {
+            let cue1 = cue.shift();
+            document.getElementById("person").innerText = cue1 == undefined ? "": cue1;
+        });
     </script>
 </body>
 </html>
