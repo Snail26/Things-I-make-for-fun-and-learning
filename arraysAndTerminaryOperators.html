@@ -14,11 +14,12 @@
     <p id="jobs"></p>
     <script>
         let cue = [];
-        document.getElementById("add").addEventListener("click", add());
-        document.getElementById("job").addEventListener("submit", add());
+        document.getElementById("add").addEventListener("click", add);
+        document.getElementById("job").addEventListener("change", add);
         function add() {
             cue.push(document.getElementById("job").value);
             document.getElementById("job").value = "";
+            document.getElementById("jobs").innerText = "Upcoming Jobs: " + cue.join(", ");
         }
         document.getElementById("next").addEventListener("click", () => {
             let cue1 = cue.shift();
