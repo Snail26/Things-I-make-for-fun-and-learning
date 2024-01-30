@@ -14,17 +14,16 @@
     <p id="jobs"></p>
     <script>
         let cue = [];
-        document.getElementById("add").addEventListener("click", add);
         document.getElementById("job").addEventListener("change", add);
         function add() {
             cue.push(document.getElementById("job").value);
             document.getElementById("job").value = "";
-            document.getElementById("jobs").innerText = "Upcoming Jobs: " + cue.join(", ");
+            document.getElementById("jobs").innerText = cue[0] == undefined ? "Looks Like There Is Nothing Left! Good job" :"Upcoming Jobs: " + cue.join(", ");
         }
         document.getElementById("next").addEventListener("click", () => {
             let cue1 = cue.shift();
             document.getElementById("current").innerText = cue1 == undefined ? "Nothing Left. Try adding more to stay bussy!": cue1;
-            document.getElementById("jobs").innerText = "Upcoming Jobs: " + cue.join(", ");
+            document.getElementById("jobs").innerText = cue[0] == undefined ? "Looks Like There Is Nothing Left! Good job" :"Upcoming Jobs: " + cue.join(", ");
         });
     </script>
 </body>
