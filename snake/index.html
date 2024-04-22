@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake game</title>
+    <style>
+        body {
+            margin: none;
+            padding: none;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            background-color: #dfdfdf;
+        }
+        hr {
+            border: 2px solid black;
+        }
+        #game {
+            background-color: #efefef;
+            border: 2px solid black;
+            display: block;
+            position: absolute;
+            top: 8em;
+        }
+        #startBtn {
+            position: relative;
+            top: 45%;
+        }
+        button {
+            background-color: #0b57d0;
+            cursor: pointer;
+            color: white;
+            border: 0.5px solid transparent;
+            padding-top: 1.25%;
+            padding-bottom: 1.25%;
+            padding-left: 2%;
+            padding-right: 2%;
+            border-radius: 15%;
+            animation-name: buttonMouseOut;
+            animation-duration: 0.5s;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        }
+        button:hover {
+            background-color: blue;
+            animation-name: buttonHover;
+            animation-duration: 0.5s;
+            border: 0.5px solid #0b57d0;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        }
+        button:hover:focus {
+            background: radial-gradient(circle, rgba(0,60,155,1) 0%, rgba(0,0,255,1) 100%);
+        }
+        button:hover:active {
+            animation-name: clicking;
+            animation-duration: 0.5s;
+            background: radial-gradient(circle, rgba(0,60,155,1) 0%, rgba(0,0,255,1) 100%);
+        }
+        @keyframes buttonHover {
+            from{
+                background-color: #0b57d0;
+                border: 0.5px solid transparent;
+                box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+            }
+            to{
+                background-color: blue;
+                border: 0.5px solid #0b57d0;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            }
+        }
+        @keyframes buttonMouseOut {
+            from{
+                background-color: blue;
+                border: 0.5px solid #0b57d0;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            }
+            to{
+                background-color: #0b57d0;
+                border: 0.5px solid transparent;
+                box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+            }
+        }
+        @keyframes clicking {
+            from{
+                background: radial-gradient(circle, rgba(0,60,155,1) 0%, rgba(0,0,255,1) 0%);
+            }
+            to {
+                background: radial-gradient(circle, rgba(0,60,155,1) 0%, rgba(0,0,255,1) 100%);
+            }
+        }
+        section {
+            position:  absolute;
+            background-color: black;
+        }
+        #gameSection {
+            display: none;
+        }
+        #apple {
+            position: absolute;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Snake!</h1>
+    <p id="score">Click Start To Play!</p>
+    <hr>
+    <div id="game">
+        <button id="startBtn">Start!</button>
+        <div id="gameSection">
+            <div id="apple"></div>
+            <div id="snake">
+                
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
