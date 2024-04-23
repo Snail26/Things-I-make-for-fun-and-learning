@@ -5,6 +5,7 @@ This took me about 5 hours of my time and you will not find similar code in any 
 
 const game = document.getElementById("game");
 let inGame = false;
+let speed = 250;
 const size = Math.ceil((Math.round(window.innerHeight / 2)+1)/10)*10;
 let applePos = Math.ceil((Math.floor(Math.random() * size)+1)/10)*10 + ", " + Math.ceil((Math.floor(Math.random() * size)+1)/10)*10;
 document.getElementById("apple").style.left = applePos.split(", ")[0] + "px";
@@ -28,6 +29,7 @@ game.style.height = size + "px";
 if (localStorage?.getItem("hs") != undefined) {
     document.getElementById("score").innerText = `High Score: ${localStorage?.getItem("hs")}`;
 }
+localStorage?.getItem("speed") == undefined ? localStorage.setItem("speed", 250) : speed = Number(localStorage?.getItem("speed"));
 document.getElementById("startBtn").addEventListener("click", () => {
     window.setTimeout(() => {
         document.getElementById("score").innerText = `Score: ${Number(segments.length) - 1}`;
@@ -89,8 +91,14 @@ document.getElementById("startBtn").addEventListener("click", () => {
                     die();
                 }
             }
-        }, 250);
+        }, speed);
     }, 250);
+});
+
+document.getElementById("speedChange").addEventListener("click", () => {
+    const speed1 = Number(prompt("What tick speed would you like? (Lower number = Faster snake, Max number = 250)"));
+    speed = (speed1 < 0 ? speed1 * -1 : speed1) > 250 ? 250 : (speed1 < 0 ? speed1 * -1 : speed1);
+    localStorage.setItem("speed", speed);
 });
 
 function addSegment(pos) {
