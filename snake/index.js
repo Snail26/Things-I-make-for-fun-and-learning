@@ -1,6 +1,6 @@
 /*
-All code made by snail no tuorials were used in the creation of this code.
-This took me about 5 hours of my time and you will not find similar code in any tutorials this is my 100% raw work in five hours.
+All code made by snail
+this is my 100% raw work in five hours.
 */
 
 const game = document.getElementById("game");
